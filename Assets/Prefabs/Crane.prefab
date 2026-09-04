@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7207377148459132896}
   - component: {fileID: 4320813159272438631}
   - component: {fileID: 3671177259819730525}
-  - component: {fileID: 5769360628205884650}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -84,27 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5769360628205884650
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2266880210314369687}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3360055859880170599
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,7 +204,7 @@ GameObject:
   - component: {fileID: 8038755504327630209}
   m_Layer: 0
   m_Name: Crane
-  m_TagString: Untagged
+  m_TagString: Crane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -267,7 +245,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.58, y: 0.16, z: 1}
+  m_Size: {x: 0.48, y: 0.16, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &3406592672307229631
 Rigidbody:

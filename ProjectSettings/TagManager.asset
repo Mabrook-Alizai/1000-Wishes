@@ -8,6 +8,7 @@ TagManager:
   - Checkpoint
   - Wish
   - Rock
+  - Crane
   layers:
   - Default
   - TransparentFX

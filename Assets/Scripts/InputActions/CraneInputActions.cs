@@ -44,6 +44,15 @@ public partial class @CraneInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Start"",
+                    ""type"": ""Button"",
+                    ""id"": ""fd16936d-2c93-4496-9f45-4187e48264a8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -68,6 +77,17 @@ public partial class @CraneInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Throw"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2f17c98f-b200-4459-960a-842565a82e4f"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Start"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -78,6 +98,7 @@ public partial class @CraneInputActions: IInputActionCollection2, IDisposable
         m_CraneMovement = asset.FindActionMap("CraneMovement", throwIfNotFound: true);
         m_CraneMovement_Grab = m_CraneMovement.FindAction("Grab", throwIfNotFound: true);
         m_CraneMovement_Throw = m_CraneMovement.FindAction("Throw", throwIfNotFound: true);
+        m_CraneMovement_Start = m_CraneMovement.FindAction("Start", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -141,12 +162,14 @@ public partial class @CraneInputActions: IInputActionCollection2, IDisposable
     private List<ICraneMovementActions> m_CraneMovementActionsCallbackInterfaces = new List<ICraneMovementActions>();
     private readonly InputAction m_CraneMovement_Grab;
     private readonly InputAction m_CraneMovement_Throw;
+    private readonly InputAction m_CraneMovement_Start;
     public struct CraneMovementActions
     {
         private @CraneInputActions m_Wrapper;
         public CraneMovementActions(@CraneInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Grab => m_Wrapper.m_CraneMovement_Grab;
         public InputAction @Throw => m_Wrapper.m_CraneMovement_Throw;
+        public InputAction @Start => m_Wrapper.m_CraneMovement_Start;
         public InputActionMap Get() { return m_Wrapper.m_CraneMovement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -162,6 +185,9 @@ public partial class @CraneInputActions: IInputActionCollection2, IDisposable
             @Throw.started += instance.OnThrow;
             @Throw.performed += instance.OnThrow;
             @Throw.canceled += instance.OnThrow;
+            @Start.started += instance.OnStart;
+            @Start.performed += instance.OnStart;
+            @Start.canceled += instance.OnStart;
         }
 
         private void UnregisterCallbacks(ICraneMovementActions instance)
@@ -172,6 +198,9 @@ public partial class @CraneInputActions: IInputActionCollection2, IDisposable
             @Throw.started -= instance.OnThrow;
             @Throw.performed -= instance.OnThrow;
             @Throw.canceled -= instance.OnThrow;
+            @Start.started -= instance.OnStart;
+            @Start.performed -= instance.OnStart;
+            @Start.canceled -= instance.OnStart;
         }
 
         public void RemoveCallbacks(ICraneMovementActions instance)
@@ -193,5 +222,6 @@ public partial class @CraneInputActions: IInputActionCollection2, IDisposable
     {
         void OnGrab(InputAction.CallbackContext context);
         void OnThrow(InputAction.CallbackContext context);
+        void OnStart(InputAction.CallbackContext context);
     }
 }
