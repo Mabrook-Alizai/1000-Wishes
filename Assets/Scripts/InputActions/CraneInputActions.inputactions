@@ -1,0 +1,54 @@
+{
+    "name": "CraneInputActions",
+    "maps": [
+        {
+            "name": "CraneMovement",
+            "id": "619406dd-a5af-4a02-921a-e1768cf6cb5a",
+            "actions": [
+                {
+                    "name": "Grab",
+                    "type": "Button",
+                    "id": "5ea2947d-d2e3-44b7-9567-612778018a51",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Throw",
+                    "type": "Button",
+                    "id": "b90b5454-0f83-470f-b01e-afa0ccd4a2a6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "87ce558f-b56c-4aca-86cd-5c290e38b558",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Grab",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "204f80ad-a773-4759-8200-472450009ac5",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Throw",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
