@@ -17,9 +17,12 @@ public class GlassBreak : MonoBehaviour
     [SerializeField] private float explosionForce;
     [SerializeField] private float explosionRadius;
 
+    private bool glassHit;
     private bool glassShattered;
+    private bool canHit;
 
     private Coroutine glassShardsDisappear;
+    private Coroutine glassHitCooldown;
 
     private void Start()
     {
@@ -34,15 +37,42 @@ public class GlassBreak : MonoBehaviour
         }
 
         glassShattered = false;
+        glassHit = false;
+        canHit = true;
     }
 
     
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!canHit) return;
+
         if (other.CompareTag(ROCK))
         {
-            ShatterGlass();
+            if(!glassHit && !glassShattered)
+            {
+                glassHit = true;
+                GlassCrack();
+                if(glassHitCooldown != null)
+                {
+                    StopCoroutine(glassHitCooldown);
+                }
+                glassHitCooldown = StartCoroutine(GlassHitCoolDown());
+            }
+            else if (glassHit)
+            {
+                ShatterGlass();
+            }
+        }
+    }
+
+    private void GlassCrack()
+    {
+        glassSolid.SetActive(false);
+
+        foreach(Rigidbody rb in rigidbodies)
+        {
+            rb.gameObject.SetActive(true);
         }
     }
 
@@ -68,14 +98,12 @@ public class GlassBreak : MonoBehaviour
 
         glassBreakingSource.PlayOneShot(glassBreaking);
 
-        if(glassShardsDisappear == null)
-        {
-            StartCoroutine(ShardDisappear());
-        }
         if(glassShardsDisappear != null)
         {
             StopCoroutine(glassShardsDisappear);
         }
+
+        glassShardsDisappear = StartCoroutine(ShardDisappear());
     }
 
     private IEnumerator ShardDisappear()
@@ -85,5 +113,14 @@ public class GlassBreak : MonoBehaviour
         {
             rb.gameObject.SetActive(false);
         }
+        glassShardsDisappear = null;
+    }
+
+    private IEnumerator GlassHitCoolDown()
+    {
+        canHit = false;
+        yield return new WaitForSeconds(.3f);
+        canHit = true;
+        glassHitCooldown = null;
     }
 }

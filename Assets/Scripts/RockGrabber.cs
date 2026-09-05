@@ -22,6 +22,11 @@ public class RockGrabber : MonoBehaviour
         craneInputActions.CraneMovement.Enable();
     }
 
+    private void OnEnable()
+    {
+        MagnetActivator.OnMagnetDeactivated += MagnetActivator_OnMagnetDeactivated;
+    }
+
     private void Update()
     {
         if(canGrab && craneInputActions.CraneMovement.Grab.triggered)
@@ -82,5 +87,13 @@ public class RockGrabber : MonoBehaviour
 
         currentlyHeldRock = null;
 
+    }
+
+    private void MagnetActivator_OnMagnetDeactivated()
+    {
+        if(currentlyHeldRock != null)
+        {
+            ReleaseRock();
+        }
     }
 }

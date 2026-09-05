@@ -7,24 +7,27 @@ public class CollisionDetector : MonoBehaviour
 {
     public static event Action OnCheckpointCrossed;
     public static event Action OnWishCollected;
+    public static event Action OnMagnetCollected;
 
     private const string WISH = "Wish";
     private const string OBSTACLE = "Obstacle";
     private const string CHECKPOINT = "Checkpoint";
     private const string ROCK = "Rock";
+    private const string MAGNET = "Magnet";
 
     [SerializeField] private CraneController craneController;
     [SerializeField] private RockGrabber rockGrabber;
+    private MagnetActivator magnetActivator;
 
     private CraneInputActions craneInputActions;
     
 
     private void Awake()
     {
+        magnetActivator = GetComponent<MagnetActivator>();
         craneInputActions = new CraneInputActions();
         craneInputActions.CraneMovement.Enable();
     }
-
 
     private void OnTriggerEnter(Collider other)
     {
@@ -48,8 +51,16 @@ public class CollisionDetector : MonoBehaviour
 
         else if (other.CompareTag(ROCK))
         {
-            rockGrabber.canGrab = true;
+            if (magnetActivator.isMagnetActive) rockGrabber.canGrab = true;
+            else rockGrabber.canGrab = false;
+
             rockGrabber.rockInZone = other.gameObject;
+        }
+
+        else if (other.CompareTag(MAGNET))
+        {
+            other.gameObject.SetActive(false);
+            OnMagnetCollected?.Invoke();
         }
     }
 }

@@ -52,7 +52,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3883348957858944025
 Transform:
   m_ObjectHideFlags: 0
@@ -185,7 +185,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7236179334449354030
 Transform:
   m_ObjectHideFlags: 0
@@ -318,7 +318,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5172459847584104668
 Transform:
   m_ObjectHideFlags: 0
@@ -451,7 +451,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &814661728688632293
 Transform:
   m_ObjectHideFlags: 0
@@ -584,7 +584,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3146760272374021627
 Transform:
   m_ObjectHideFlags: 0
@@ -717,7 +717,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7322012091998466923
 Transform:
   m_ObjectHideFlags: 0
@@ -980,9 +980,10 @@ MonoBehaviour:
   glassSolid: {fileID: 0}
   glassShatter: {fileID: 0}
   rigidbodies: []
+  glassBreaking: {fileID: 0}
+  glassBreakingSource: {fileID: 0}
   explosionForce: 0
   explosionRadius: 0
-  yForce: 0
 --- !u!1 &5054641147012577662
 GameObject:
   m_ObjectHideFlags: 0
@@ -1002,7 +1003,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8771505850160097715
 Transform:
   m_ObjectHideFlags: 0
@@ -1135,7 +1136,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4442390630096922698
 Transform:
   m_ObjectHideFlags: 0
@@ -1324,9 +1325,10 @@ MonoBehaviour:
   - {fileID: 4164334522352720732}
   - {fileID: 515834543202984574}
   - {fileID: 5908897642307204647}
+  glassBreaking: {fileID: 0}
+  glassBreakingSource: {fileID: 0}
   explosionForce: 20
   explosionRadius: 20
-  yForce: 0.5
 --- !u!65 &7983764608482105817
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1367,7 +1369,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4176473055814312097
 Transform:
   m_ObjectHideFlags: 0
@@ -1500,7 +1502,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1516343076185220956
 Transform:
   m_ObjectHideFlags: 0
@@ -1633,7 +1635,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &676714632410949885
 Transform:
   m_ObjectHideFlags: 0
@@ -1766,7 +1768,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9106918486079773590
 Transform:
   m_ObjectHideFlags: 0
@@ -2004,7 +2006,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3562852294306565001
 Transform:
   m_ObjectHideFlags: 0

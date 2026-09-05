@@ -9,6 +9,7 @@ TagManager:
   - Wish
   - Rock
   - Crane
+  - Magnet
   layers:
   - Default
   - TransparentFX
