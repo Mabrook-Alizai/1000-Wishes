@@ -8,12 +8,15 @@ public class CollisionDetector : MonoBehaviour
     public static event Action OnCheckpointCrossed;
     public static event Action OnWishCollected;
     public static event Action OnMagnetCollected;
+    public static event Action OnEnteringWindZone;
+    public static event Action OnExitingWindZone;
 
     private const string WISH = "Wish";
     private const string OBSTACLE = "Obstacle";
     private const string CHECKPOINT = "Checkpoint";
     private const string ROCK = "Rock";
     private const string MAGNET = "Magnet";
+    private const string WIND_ZONE = "WindZone";
 
     [SerializeField] private CraneController craneController;
     [SerializeField] private RockGrabber rockGrabber;
@@ -51,16 +54,43 @@ public class CollisionDetector : MonoBehaviour
 
         else if (other.CompareTag(ROCK))
         {
-            if (magnetActivator.isMagnetActive) rockGrabber.canGrab = true;
-            else rockGrabber.canGrab = false;
+            if (magnetActivator.isMagnetActive) 
+            { 
+                rockGrabber.canGrab = true;
+            }
+            else
+            {
+                rockGrabber.canGrab = false;
+            }
 
-            rockGrabber.rockInZone = other.gameObject;
+            rockGrabber.rockInZone = other.transform.root.gameObject;
         }
 
         else if (other.CompareTag(MAGNET))
         {
             other.gameObject.SetActive(false);
             OnMagnetCollected?.Invoke();
+        }
+
+        if (other.CompareTag(WIND_ZONE))
+        {
+            Debug.Log("Entered Wind Zone");
+            OnEnteringWindZone?.Invoke();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag(ROCK))
+        {
+            rockGrabber.canGrab = false;
+            rockGrabber.rockInZone = null;
+        }
+
+        else if (other.CompareTag(WIND_ZONE))
+        {
+            Debug.Log("Exit windzone");
+            OnExitingWindZone?.Invoke();
         }
     }
 }

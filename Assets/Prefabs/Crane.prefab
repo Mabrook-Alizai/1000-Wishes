@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8826993891733862686}
   - component: {fileID: 6024757125606029011}
   - component: {fileID: 7888799555016470494}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MagnetVFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 7207377148459132896}
   - component: {fileID: 4320813159272438631}
   - component: {fileID: 3671177259819730525}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 6572381312410418518}
   - component: {fileID: 580109293517077342}
   - component: {fileID: 5184653532412713614}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -308,13 +308,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1392083272087656220}
-  - component: {fileID: 1492461974685736145}
+  - component: {fileID: 1579156231358149167}
   - component: {fileID: 3406592672307229631}
   - component: {fileID: 2995065610065596666}
   - component: {fileID: 6629831490548067177}
   - component: {fileID: 8038755504327630209}
   - component: {fileID: 6426197688917251255}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Crane
   m_TagString: Crane
   m_Icon: {fileID: 0}
@@ -339,8 +339,8 @@ Transform:
   - {fileID: 8826993891733862686}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1492461974685736145
-BoxCollider:
+--- !u!136 &1579156231358149167
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -357,8 +357,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.48, y: 0.16, z: 1}
+  serializedVersion: 2
+  m_Radius: 0.2
+  m_Height: 1
+  m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &3406592672307229631
 Rigidbody:
@@ -384,7 +386,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 0
   m_IsKinematic: 1
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!114 &2995065610065596666
@@ -403,7 +405,7 @@ MonoBehaviour:
   pitchAngle: 90
   yawAngle: 90
   rollAngle: 45
-  craneSpeed: 5
+  craneSpeed: 8
   rollSmoothness: 10
 --- !u!114 &6629831490548067177
 MonoBehaviour:
@@ -434,7 +436,7 @@ MonoBehaviour:
   rockHoldPoint: {fileID: 8345817857585775233}
   planeTransform: {fileID: 4406091886021628169}
   throwForce: 20
-  upwardModifier: 5
+  upwardModifier: 3
   canGrab: 0
   rockInZone: {fileID: 0}
 --- !u!114 &6426197688917251255
@@ -451,6 +453,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   magnetVFX: {fileID: 6024757125606029011}
   isMagnetActive: 0
+  magnetActiveWaitTime: 10
 --- !u!1 &6900239990704048460
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,7 +466,7 @@ GameObject:
   - component: {fileID: 641098225800273225}
   - component: {fileID: 8604802363165387345}
   - component: {fileID: 2247824390799161829}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -565,7 +568,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4406091886021628169}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -588,6 +591,7 @@ Transform:
   - {fileID: 8629412502300645275}
   - {fileID: 7207377148459132896}
   - {fileID: 5075560342717251165}
+  - {fileID: 1047531843479424168}
   m_Father: {fileID: 1392083272087656220}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9060944281431032371
@@ -599,7 +603,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8345817857585775233}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RockHoldPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -621,3 +625,148 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1392083272087656220}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &9211986463122939894
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1047531843479424168}
+  - component: {fileID: 4117429685753995564}
+  m_Layer: 6
+  m_Name: Trail
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1047531843479424168
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9211986463122939894}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.558}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4406091886021628169}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!96 &4117429685753995564
+TrailRenderer:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9211986463122939894}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 0
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Time: 0.5
+  m_PreviewTimeScale: 1
+  m_Parameters:
+    serializedVersion: 3
+    widthMultiplier: 1
+    widthCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0.07051283
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0.019230783
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    colorGradient:
+      serializedVersion: 2
+      key0: {r: 0.8050313, g: 0.2688679, b: 1, a: 0}
+      key1: {r: 0.6462264, g: 0.9315276, b: 1, a: 0.9137255}
+      key2: {r: 1, g: 1, b: 1, a: 0.9647059}
+      key3: {r: 0.31197995, g: 0, b: 0.0013795069, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 10216
+      ctime1: 42405
+      ctime2: 64957
+      ctime3: 65535
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 13685
+      atime2: 36815
+      atime3: 64764
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_ColorSpace: 0
+      m_NumColorKeys: 3
+      m_NumAlphaKeys: 4
+    numCornerVertices: 0
+    numCapVertices: 0
+    alignment: 0
+    textureMode: 0
+    textureScale: {x: 1, y: 1}
+    shadowBias: 0.5
+    generateLightingData: 0
+  m_MinVertexDistance: 0.05
+  m_MaskInteraction: 0
+  m_Autodestruct: 0
+  m_Emitting: 1
+  m_ApplyActiveColorSpace: 1

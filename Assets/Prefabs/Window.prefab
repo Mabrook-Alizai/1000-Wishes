@@ -29,7 +29,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7419004540796811141}
   - {fileID: 3955364404057156230}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -46,9 +45,9 @@ GameObject:
   - component: {fileID: 5453330335896742524}
   - component: {fileID: 3756404554992828147}
   - component: {fileID: 7416474348339291595}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube_cell.005
-  m_TagString: Untagged
+  m_TagString: GlassShards
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -179,9 +178,9 @@ GameObject:
   - component: {fileID: 663506218894381641}
   - component: {fileID: 8497751415379614043}
   - component: {fileID: 515834543202984574}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube_cell.012
-  m_TagString: Untagged
+  m_TagString: GlassShards
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -312,9 +311,9 @@ GameObject:
   - component: {fileID: 8430809546119598273}
   - component: {fileID: 7429535067434620207}
   - component: {fileID: 4308854737416193901}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube_cell.007
-  m_TagString: Untagged
+  m_TagString: GlassShards
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -445,9 +444,9 @@ GameObject:
   - component: {fileID: 3315997149614939562}
   - component: {fileID: 5604481887211271584}
   - component: {fileID: 3284393673756227184}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube_cell.010
-  m_TagString: Untagged
+  m_TagString: GlassShards
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -578,9 +577,9 @@ GameObject:
   - component: {fileID: 5418471831902518804}
   - component: {fileID: 771316388559890155}
   - component: {fileID: 7844300855728910144}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube_cell.003
-  m_TagString: Untagged
+  m_TagString: GlassShards
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -711,9 +710,9 @@ GameObject:
   - component: {fileID: 7511652689726686101}
   - component: {fileID: 1627057159883909791}
   - component: {fileID: 5908897642307204647}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube_cell.013
-  m_TagString: Untagged
+  m_TagString: GlassShards
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -831,159 +830,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!1 &4637266460748187549
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7419004540796811141}
-  - component: {fileID: 1617819436041395464}
-  - component: {fileID: 5876485223208056199}
-  - component: {fileID: 8821618810154237385}
-  - component: {fileID: 1861109907953335017}
-  - component: {fileID: 6344329082528768146}
-  m_Layer: 0
-  m_Name: WindowGlass
-  m_TagString: Obstacle
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &7419004540796811141
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4637266460748187549}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 7.4, y: 5, z: 0.16999999}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6889414022744439837}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!33 &1617819436041395464
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4637266460748187549}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &5876485223208056199
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4637266460748187549}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 9500efaca2797d24bb7520dfd1feb17d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8821618810154237385
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4637266460748187549}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &1861109907953335017
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4637266460748187549}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!114 &6344329082528768146
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4637266460748187549}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 719e125904a5588469e0278e34596b02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  glassSolid: {fileID: 0}
-  glassShatter: {fileID: 0}
-  rigidbodies: []
-  glassBreaking: {fileID: 0}
-  glassBreakingSource: {fileID: 0}
-  explosionForce: 0
-  explosionRadius: 0
 --- !u!1 &5054641147012577662
 GameObject:
   m_ObjectHideFlags: 0
@@ -997,9 +843,9 @@ GameObject:
   - component: {fileID: 1358092932390689162}
   - component: {fileID: 6667623192593943573}
   - component: {fileID: 5181433574649378524}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube_cell.009
-  m_TagString: Untagged
+  m_TagString: GlassShards
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1130,9 +976,9 @@ GameObject:
   - component: {fileID: 24191437104736387}
   - component: {fileID: 6426306162672211621}
   - component: {fileID: 292417350864564218}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube_cell.002
-  m_TagString: Untagged
+  m_TagString: GlassShards
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1363,9 +1209,9 @@ GameObject:
   - component: {fileID: 6414169363815403236}
   - component: {fileID: 4070691147445545005}
   - component: {fileID: 4449206542575859386}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube_cell.008
-  m_TagString: Untagged
+  m_TagString: GlassShards
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1496,9 +1342,9 @@ GameObject:
   - component: {fileID: 5831176937400845185}
   - component: {fileID: 7008703471174599966}
   - component: {fileID: 7724973862564720224}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube_cell
-  m_TagString: Untagged
+  m_TagString: GlassShards
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1629,9 +1475,9 @@ GameObject:
   - component: {fileID: 1547566037928801102}
   - component: {fileID: 3819580402836689308}
   - component: {fileID: 7734978182979295626}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube_cell.001
-  m_TagString: Untagged
+  m_TagString: GlassShards
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1762,9 +1608,9 @@ GameObject:
   - component: {fileID: 8588917676599781317}
   - component: {fileID: 2508807593313117713}
   - component: {fileID: 4164334522352720732}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube_cell.011
-  m_TagString: Untagged
+  m_TagString: GlassShards
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2000,9 +1846,9 @@ GameObject:
   - component: {fileID: 6404214072445044242}
   - component: {fileID: 7112642969350877845}
   - component: {fileID: 8708420635504839410}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube_cell.004
-  m_TagString: Untagged
+  m_TagString: GlassShards
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

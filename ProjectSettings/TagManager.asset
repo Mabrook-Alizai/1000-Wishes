@@ -10,6 +10,8 @@ TagManager:
   - Rock
   - Crane
   - Magnet
+  - GlassShards
+  - WindZone
   layers:
   - Default
   - TransparentFX
@@ -17,9 +19,9 @@ TagManager:
   - Walls
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Crane
+  - Interactables
+  - GlassShards
   - 
   - 
   - 
