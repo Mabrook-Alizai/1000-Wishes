@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class StartUI : MonoBehaviour
 {
+    public static event Action OnCraneControllerEnabled;
+
     private CraneInputActions craneInputActions;
     [SerializeField] private CraneController craneController;
 
@@ -22,6 +25,7 @@ public class StartUI : MonoBehaviour
         {
             gameObject.SetActive(false);
             craneController.enabled = true;
+            OnCraneControllerEnabled?.Invoke();
         }
     }
 }

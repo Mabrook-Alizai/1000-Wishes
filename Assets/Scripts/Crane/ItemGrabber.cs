@@ -2,19 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RockGrabber : MonoBehaviour
+public class ItemGrabber : MonoBehaviour
 {
-    [SerializeField] private Transform rockHoldPoint;
+    [SerializeField] private Transform itemHoldPoint;
     [SerializeField] private Transform planeTransform;
 
     private CraneInputActions craneInputActions;
-    private GameObject currentlyHeldRock;
+    private GameObject currentlyHeldItem;
 
     [SerializeField] private float throwForce = 2f;
     [SerializeField] private float upwardModifier = 2f;
 
     public bool canGrab;
-    public GameObject rockInZone;
+    public GameObject itemInZone;
 
     private void Awake()
     {
@@ -31,49 +31,49 @@ public class RockGrabber : MonoBehaviour
     {
         if(canGrab && craneInputActions.CraneMovement.Grab.triggered)
         {
-            if (currentlyHeldRock != null) ReleaseRock();
-            else if (currentlyHeldRock == null) GrabRock(rockInZone);
+            if (currentlyHeldItem != null) ReleaseItem();
+            else if (currentlyHeldItem == null) GrabItem(itemInZone);
         }
 
-        if(craneInputActions.CraneMovement.Throw.triggered && currentlyHeldRock != null)
+        if(craneInputActions.CraneMovement.Throw.triggered && currentlyHeldItem != null)
         {
-            ThrowRock();
+            ThrowItem();
         }
 
     }
 
-    public void GrabRock(GameObject targetGrabbableRock)
+    public void GrabItem(GameObject targetGrabbableItem)
     {
-        currentlyHeldRock = targetGrabbableRock;
-        currentlyHeldRock.transform.SetParent(rockHoldPoint, true);
+        currentlyHeldItem = targetGrabbableItem;
+        currentlyHeldItem.transform.SetParent(itemHoldPoint, true);
 
-        if(currentlyHeldRock.TryGetComponent<Rigidbody>(out Rigidbody rb))
+        if(currentlyHeldItem.TryGetComponent<Rigidbody>(out Rigidbody rb))
         {
             rb.useGravity = false;
             rb.isKinematic = true;
         }
 
-        currentlyHeldRock.transform.localPosition = Vector3.zero;
+        currentlyHeldItem.transform.localPosition = Vector3.zero;
     }
 
-    private void ReleaseRock()
+    private void ReleaseItem()
     {
-        currentlyHeldRock.transform.SetParent(null);
+        currentlyHeldItem.transform.SetParent(null);
 
-        if(currentlyHeldRock.TryGetComponent<Rigidbody>(out Rigidbody rb))
+        if(currentlyHeldItem.TryGetComponent<Rigidbody>(out Rigidbody rb))
         {
             rb.useGravity = true;
             rb.isKinematic = false;
         }
 
-        currentlyHeldRock = null;
+        currentlyHeldItem = null;
     }
 
-    private void ThrowRock()
+    private void ThrowItem()
     {
-        currentlyHeldRock.transform.SetParent(null);
+        currentlyHeldItem.transform.SetParent(null);
 
-        if (currentlyHeldRock.TryGetComponent<Rigidbody>(out Rigidbody rb))
+        if (currentlyHeldItem.TryGetComponent<Rigidbody>(out Rigidbody rb))
         {
             rb.useGravity = true;
             rb.isKinematic = false;
@@ -85,15 +85,15 @@ public class RockGrabber : MonoBehaviour
             rb.AddForce(throwDirection, ForceMode.Impulse);
         }
 
-        currentlyHeldRock = null;
+        currentlyHeldItem = null;
 
     }
 
     private void MagnetActivator_OnMagnetDeactivated()
     {
-        if(currentlyHeldRock != null)
+        if(currentlyHeldItem != null)
         {
-            ReleaseRock();
+            ReleaseItem();
         }
     }
 }

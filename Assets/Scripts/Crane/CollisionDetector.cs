@@ -10,6 +10,7 @@ public class CollisionDetector : MonoBehaviour
     public static event Action OnMagnetCollected;
     public static event Action OnEnteringWindZone;
     public static event Action OnExitingWindZone;
+    public static event Action OnElectricChargeCollected;
 
     private const string WISH = "Wish";
     private const string OBSTACLE = "Obstacle";
@@ -17,9 +18,11 @@ public class CollisionDetector : MonoBehaviour
     private const string ROCK = "Rock";
     private const string MAGNET = "Magnet";
     private const string WIND_ZONE = "WindZone";
+    private const string BATTERY = "Battery";
+    private const string ELECTRIC_CHARGE = "ElectricCharge";
 
     [SerializeField] private CraneController craneController;
-    [SerializeField] private RockGrabber rockGrabber;
+    [SerializeField] private ItemGrabber itemGrabber;
     private MagnetActivator magnetActivator;
 
     private CraneInputActions craneInputActions;
@@ -52,18 +55,18 @@ public class CollisionDetector : MonoBehaviour
             OnCheckpointCrossed?.Invoke();
         }
 
-        else if (other.CompareTag(ROCK))
+        else if (other.CompareTag(ROCK) || other.CompareTag(BATTERY))
         {
             if (magnetActivator.isMagnetActive) 
             { 
-                rockGrabber.canGrab = true;
+                itemGrabber.canGrab = true;
             }
             else
             {
-                rockGrabber.canGrab = false;
+                itemGrabber.canGrab = false;
             }
 
-            rockGrabber.rockInZone = other.transform.root.gameObject;
+            itemGrabber.itemInZone = other.transform.root.gameObject;
         }
 
         else if (other.CompareTag(MAGNET))
@@ -72,19 +75,24 @@ public class CollisionDetector : MonoBehaviour
             OnMagnetCollected?.Invoke();
         }
 
-        if (other.CompareTag(WIND_ZONE))
+        else if (other.CompareTag(WIND_ZONE))
         {
             Debug.Log("Entered Wind Zone");
             OnEnteringWindZone?.Invoke();
+        }
+
+        else if (other.CompareTag(ELECTRIC_CHARGE))
+        {
+            OnElectricChargeCollected?.Invoke();
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag(ROCK))
+        if (other.CompareTag(ROCK) || other.CompareTag(BATTERY))
         {
-            rockGrabber.canGrab = false;
-            rockGrabber.rockInZone = null;
+            itemGrabber.canGrab = false;
+            itemGrabber.itemInZone = null;
         }
 
         else if (other.CompareTag(WIND_ZONE))

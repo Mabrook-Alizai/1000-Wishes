@@ -12,6 +12,10 @@ TagManager:
   - Magnet
   - GlassShards
   - WindZone
+  - PressurePlate
+  - ElectricTerminal
+  - Battery
+  - ElectricCharge
   layers:
   - Default
   - TransparentFX

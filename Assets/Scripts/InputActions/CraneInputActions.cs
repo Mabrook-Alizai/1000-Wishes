@@ -62,6 +62,15 @@ public partial class @CraneInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""bd7ec791-dc1f-45c3-9584-7124accc588b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -108,6 +117,17 @@ public partial class @CraneInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Boost"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c968ff2e-58d0-46e9-b82e-c6be62c6d377"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -120,6 +140,7 @@ public partial class @CraneInputActions: IInputActionCollection2, IDisposable
         m_CraneMovement_Throw = m_CraneMovement.FindAction("Throw", throwIfNotFound: true);
         m_CraneMovement_Start = m_CraneMovement.FindAction("Start", throwIfNotFound: true);
         m_CraneMovement_Boost = m_CraneMovement.FindAction("Boost", throwIfNotFound: true);
+        m_CraneMovement_Shoot = m_CraneMovement.FindAction("Shoot", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -185,6 +206,7 @@ public partial class @CraneInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_CraneMovement_Throw;
     private readonly InputAction m_CraneMovement_Start;
     private readonly InputAction m_CraneMovement_Boost;
+    private readonly InputAction m_CraneMovement_Shoot;
     public struct CraneMovementActions
     {
         private @CraneInputActions m_Wrapper;
@@ -193,6 +215,7 @@ public partial class @CraneInputActions: IInputActionCollection2, IDisposable
         public InputAction @Throw => m_Wrapper.m_CraneMovement_Throw;
         public InputAction @Start => m_Wrapper.m_CraneMovement_Start;
         public InputAction @Boost => m_Wrapper.m_CraneMovement_Boost;
+        public InputAction @Shoot => m_Wrapper.m_CraneMovement_Shoot;
         public InputActionMap Get() { return m_Wrapper.m_CraneMovement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -214,6 +237,9 @@ public partial class @CraneInputActions: IInputActionCollection2, IDisposable
             @Boost.started += instance.OnBoost;
             @Boost.performed += instance.OnBoost;
             @Boost.canceled += instance.OnBoost;
+            @Shoot.started += instance.OnShoot;
+            @Shoot.performed += instance.OnShoot;
+            @Shoot.canceled += instance.OnShoot;
         }
 
         private void UnregisterCallbacks(ICraneMovementActions instance)
@@ -230,6 +256,9 @@ public partial class @CraneInputActions: IInputActionCollection2, IDisposable
             @Boost.started -= instance.OnBoost;
             @Boost.performed -= instance.OnBoost;
             @Boost.canceled -= instance.OnBoost;
+            @Shoot.started -= instance.OnShoot;
+            @Shoot.performed -= instance.OnShoot;
+            @Shoot.canceled -= instance.OnShoot;
         }
 
         public void RemoveCallbacks(ICraneMovementActions instance)
@@ -253,5 +282,6 @@ public partial class @CraneInputActions: IInputActionCollection2, IDisposable
         void OnThrow(InputAction.CallbackContext context);
         void OnStart(InputAction.CallbackContext context);
         void OnBoost(InputAction.CallbackContext context);
+        void OnShoot(InputAction.CallbackContext context);
     }
 }

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
+using System.ComponentModel;
 
 public class CraneController : MonoBehaviour
 {
@@ -8,6 +10,7 @@ public class CraneController : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private Transform craneGameObject;
+    [SerializeField] private CinemachineVirtualCamera cinemachineCraneCamera;
 
     [Header("Angles")]
     [SerializeField] private float pitchAngle;
@@ -36,6 +39,11 @@ public class CraneController : MonoBehaviour
 
     [Header("Booster Parameters")]
     [SerializeField] private float speedBoosterMultiplier = 2f;
+
+    [Header("Camera Boost Parameters")]
+    [SerializeField] private float originalFOV = 60f;
+    [SerializeField] private float boostFOV = 75f;
+    [SerializeField] private float transitionSpeed = 2f;
 
     private float horizontalInput;
     private float verticalInput;
@@ -75,10 +83,15 @@ public class CraneController : MonoBehaviour
         transform.position += transform.forward * craneSpeed * Time.deltaTime;
 
         float currentSpeed = originalSpeed;
+        float targetFOV = originalFOV;
         if (craneInputActions.CraneMovement.Boost.IsPressed())
         {
             currentSpeed = originalSpeed * speedBoosterMultiplier;
+            targetFOV = boostFOV;
         }
+
+        // Camera FOV changer, when boosted
+        cinemachineCraneCamera.m_Lens.FieldOfView = Mathf.Lerp(cinemachineCraneCamera.m_Lens.FieldOfView, targetFOV, transitionSpeed * Time.deltaTime);
 
         if (isInWindZone)
         {
@@ -102,10 +115,7 @@ public class CraneController : MonoBehaviour
         currentRollAngle = -horizontalInput * rollAngle;
         roll = Mathf.Lerp(roll, currentRollAngle, rollSmoothness * Time.deltaTime);
         craneGameObject.localRotation = Quaternion.Euler(0, 0, roll);
-    }
-
-
-    
+    }    
 
     private void CollisionDetector_OnEnteringWindZone()
     {
